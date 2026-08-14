@@ -1,0 +1,213 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+}
+
+.container{
+
+    width:950px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+
+}
+
+.left{
+
+    background:#2563eb;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    padding:60px;
+
+}
+
+.left h1{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.left p{
+
+    text-align:center;
+
+    line-height:1.8;
+
+}
+
+.right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+
+}
+
+form{
+
+    width:100%;
+
+}
+
+form h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:20px;
+
+}
+
+.input-box i{
+
+    position:absolute;
+
+    left:15px;
+
+    top:16px;
+
+    color:#2563eb;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:15px 15px 15px 45px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    outline:none;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    margin-top:10px;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+form p{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+form a{
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+/* Toast */
+
+.toast{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:#22c55e;
+    color:#fff;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:500;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(100px);
+    transition:.4s;
+    z-index:9999;
+}
+
+.toast.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.toast.error{
+    background:#ef4444;
+}
+
+.toast.success{
+    background:#22c55e;
+}

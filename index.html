@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <title>Portfolio Builder Platform</title>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+</head>
+
+<body>
+
+    <!--================== NAVBAR ==================-->
+
+    <header>
+
+        <nav class="navbar">
+
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo">        
+        Portfolio Builder
+        
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#templates">Templates</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- Mobile Buttons -->
+        <li class="mobile-btn">
+            <a href="login.html" class="login-btn">Login</a>
+        </li>
+
+        <li class="mobile-btn">
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </li>
+    </ul>
+</nav>
+
+    </header>
+
+    <!--================ HERO =================-->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>Create Your Professional Portfolio</h1>
+
+            <p>
+                Design beautiful portfolios without writing a single line of code.
+            </p>
+
+            <a href="builder.html" class="hero-btn">
+                Build Now
+            </a>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="Hero Image">
+
+        </div>
+
+    </section>
+
+    <!--================ FEATURES =================-->
+
+    <div id="features-container"></div>
+
+    <!--================ Templates =================-->
+
+    <section id="templates">
+
+        <h2>Choose Your Favorite Template</h2>
+
+        <p class="section-text">
+            Select a modern template and start building your portfolio instantly.
+        </p>
+
+        <div class="template-container">
+
+            <div class="template-card">
+
+                <img src="https://picsum.photos/500/350?random=1">
+
+                <div class="template-content">
+
+                    <h3>Modern</h3>
+
+                    <p>Clean and professional portfolio for developers and students.</p>
+
+                    <a href="builder.html" class="template-btn">
+                        Use Template
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="template-card">
+
+                <img src="https://picsum.photos/500/350?random=2">
+
+                <div class="template-content">
+
+                    <h3>Creative</h3>
+
+                    <p>Best choice for designers, photographers and artists.</p>
+
+                    <a href="builder.html" class="template-btn">
+                        Use Template
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="template-card">
+
+                <img src="https://picsum.photos/500/350?random=3">
+
+                <div class="template-content">
+
+                    <h3>Minimal</h3>
+
+                    <p>Elegant and simple design focused on your work.</p>
+
+                    <a href="builder.html" class="template-btn">
+                        Use Template
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ Statistics =================-->
+
+    <section class="stats">
+
+        <div class="stat-box">
+            <h2>1000+</h2>
+            <p>Active Users</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>50+</h2>
+            <p>Portfolio Templates</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>5000+</h2>
+            <p>Portfolios Created</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>99%</h2>
+            <p>User Satisfaction</p>
+        </div>
+
+    </section>
+
+    <!--================ Testimonials =================-->
+
+    <section class="testimonial">
+
+        <h2>What Our Users Say</h2>
+
+        <div class="testimonial-container">
+
+            <div class="testimonial-card">
+
+                <img src="https://i.pravatar.cc/120?img=12">
+
+                <h3>Rahul Sharma</h3>
+
+                <p>"This platform helped me create my portfolio within minutes."</p>
+
+            </div>
+
+            <div class="testimonial-card">
+
+                <img src="https://i.pravatar.cc/120?img=15">
+
+                <h3>Priya Singh</h3>
+
+                <p>"Very professional templates. Easy to customize."</p>
+
+            </div>
+
+            <div class="testimonial-card">
+
+                <img src="https://i.pravatar.cc/120?img=25">
+
+                <h3>Aman Verma</h3>
+
+                <p>"Perfect for students and freelancers."</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ CTA =================-->
+
+    <section class="cta">
+
+        <h2>Ready to Build Your Portfolio?</h2>
+
+        <a href="login.html" class="cta-btn">
+            Get Started
+        </a>
+
+    </section>
+
+    <!--================ CONTACT =================-->
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <form>
+
+            <input type="text" placeholder="Your Name">
+
+            <input type="email" placeholder="Your Email">
+
+            <textarea placeholder="Message"></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+    <!--================ FOOTER =================-->
+
+    <footer>
+
+        <p>© 2026 Portfolio Builder Platform</p>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/loadFeatures.js"></script>
+</body>
+
+</html>

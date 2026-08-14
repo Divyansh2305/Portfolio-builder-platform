@@ -1,0 +1,91 @@
+/* Laptop */
+
+@media(max-width:1024px){
+
+.container{
+    width:90%;
+}
+
+.left{
+    padding:40px;
+}
+
+.left h1{
+    font-size:36px;
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.container{
+    width:92%;
+    grid-template-columns:1fr;
+}
+
+.left{
+    padding:40px 25px;
+}
+
+.right{
+    padding:35px 25px;
+}
+
+.left h1{
+    font-size:30px;
+}
+
+.left p{
+    font-size:15px;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+body{
+    padding:20px;
+    height:auto;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    border-radius:15px;
+}
+
+.left{
+    padding:30px 20px;
+}
+
+.right{
+    padding:30px 20px;
+}
+
+.left h1{
+    font-size:26px;
+}
+
+.left p{
+    font-size:14px;
+}
+
+form h2{
+    font-size:28px;
+}
+
+.input-box input{
+    padding:14px 14px 14px 45px;
+    font-size:15px;
+}
+
+button{
+    padding:14px;
+    font-size:16px;
+}
+
+}

@@ -1,0 +1,1563 @@
+/* =====================================================
+   RESET & GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    background: #f4f6fb;
+    color: #1f2937;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.builder-header {
+    width: 100%;
+    height: 72px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #4f46e5;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo i {
+    font-size: 23px;
+}
+
+
+/* Header Actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Buttons */
+
+.btn {
+    border: none;
+    outline: none;
+
+    padding: 10px 17px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-save {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.btn-save:hover {
+    background: #e0e7ff;
+}
+
+.btn-preview {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.btn-preview:hover {
+    background: #e5e7eb;
+}
+
+.btn-generate {
+    background: #4f46e5;
+    color: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.btn-generate:hover {
+    background: #4338ca;
+    box-shadow: 0 7px 18px rgba(79, 70, 229, 0.30);
+}
+
+
+/* =====================================================
+   MAIN BUILDER
+===================================================== */
+
+.builder-container {
+    width: 100%;
+    height: calc(100vh - 72px);
+
+    display: grid;
+    grid-template-columns: 430px minmax(0, 1fr);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   LEFT SIDEBAR
+===================================================== */
+
+.builder-sidebar {
+    height: calc(100vh - 72px);
+
+    padding: 25px;
+
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* Sidebar Scrollbar */
+
+.builder-sidebar::-webkit-scrollbar {
+    width: 7px;
+}
+
+.builder-sidebar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.builder-sidebar::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 20px;
+}
+
+.builder-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #818cf8;
+}
+
+
+/* =====================================================
+   SIDEBAR TITLE
+===================================================== */
+
+.sidebar-title {
+    margin-bottom: 25px;
+}
+
+.sidebar-title h2 {
+    margin-bottom: 5px;
+
+    color: #111827;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.sidebar-title p {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   BUILDER SECTIONS
+===================================================== */
+
+.builder-section {
+    margin-bottom: 17px;
+    padding: 18px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.builder-section:hover {
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+
+/* Section Heading */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    color: #111827;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.section-heading i {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group label i {
+    margin-right: 5px;
+}
+
+
+/* Inputs */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #111827;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    transition: all 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+
+/* File Input */
+
+.form-group input[type="file"] {
+    padding: 8px;
+
+    background: #f9fafb;
+    cursor: pointer;
+}
+
+
+/* Form Row */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* =====================================================
+   SKILLS BUILDER
+===================================================== */
+
+#skillsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Skill Input */
+
+.skill-input-row {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 10px;
+
+    position: relative;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+
+    transition: all 0.25s ease;
+}
+
+.skill-input-row:hover {
+    border-color: #818cf8;
+    background: #fafaff;
+
+    transform: translateX(2px);
+
+    box-shadow:
+        0 5px 15px rgba(79, 70, 229, 0.08);
+}
+
+
+/* Skill Icon */
+
+.skill-input-row::before {
+    content: "\f121";
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #e0e7ff
+    );
+
+    color: #4f46e5;
+
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    font-weight: 900;
+
+    transition: all 0.25s ease;
+}
+
+.skill-input-row:hover::before {
+    background: #4f46e5;
+    color: #ffffff;
+
+    transform: rotate(-5deg) scale(1.05);
+}
+
+
+/* Skill Text Input */
+
+.skill-input-row input {
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+
+    margin: 0;
+    padding: 7px 5px;
+
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+
+    color: #1f2937;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.skill-input-row input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.skill-input-row:focus-within {
+    border-color: #6366f1;
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+
+/* Remove Skill */
+
+.remove-skill {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #fff1f2;
+    color: #f43f5e;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    transition: all 0.2s ease;
+}
+
+.remove-skill:hover {
+    background: #f43f5e;
+    color: #ffffff;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 4px 10px rgba(244, 63, 94, 0.20);
+}
+
+
+/* Add Button */
+
+.add-btn,
+.add-education-btn,
+.add-project-btn,
+.add-social-btn {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 11px 14px;
+
+    border: 1px dashed #a5b4fc;
+    border-radius: 9px;
+
+    background: #f5f7ff;
+    color: #4f46e5;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    transition: all 0.2s ease;
+}
+
+.add-btn {
+    margin-top: 4px;
+}
+
+.add-btn:hover,
+.add-education-btn:hover,
+.add-project-btn:hover,
+.add-social-btn:hover {
+    background: #eef2ff;
+    border-color: #6366f1;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(79, 70, 229, 0.08);
+}
+
+
+/* =====================================================
+   EDUCATION BUILDER
+===================================================== */
+
+#educationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.education-card {
+    padding: 15px;
+
+    position: relative;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+}
+
+.education-card:hover {
+    border-color: #c7d2fe;
+    background: #f8faff;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+
+/* Remove Education */
+
+.remove-education {
+    width: 28px;
+    height: 28px;
+
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #fee2e2;
+    color: #ef4444;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.remove-education:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   PROJECT BUILDER
+===================================================== */
+
+#projectsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-card-builder {
+    padding: 15px;
+
+    position: relative;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+}
+
+.project-card-builder:hover {
+    border-color: #c7d2fe;
+    background: #f8faff;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =====================================================
+   SOCIAL BUILDER
+===================================================== */
+
+#socialLinksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link-card {
+    padding: 15px;
+
+    position: relative;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+}
+
+.social-link-card:hover {
+    border-color: #c7d2fe;
+    background: #f8faff;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.social-link-card select,
+.social-link-card input {
+    width: 100%;
+}
+
+
+/* =====================================================
+   PREVIEW AREA
+===================================================== */
+
+.preview-area {
+    min-width: 0;
+
+    height: calc(100vh - 72px);
+
+    padding: 28px;
+
+    background: #f4f6fb;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* Preview Scrollbar */
+
+.preview-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.preview-area::-webkit-scrollbar-track {
+    background: #e9edf5;
+    border-radius: 10px;
+}
+
+.preview-area::-webkit-scrollbar-thumb {
+    background: #a5b4fc;
+    border-radius: 10px;
+}
+
+.preview-area::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+
+/* =====================================================
+   PREVIEW TOP
+===================================================== */
+
+.preview-top {
+    max-width: 900px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.preview-top h2 {
+    margin-bottom: 3px;
+
+    color: #111827;
+    font-size: 21px;
+}
+
+.preview-top p {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   LIVE STATUS
+===================================================== */
+
+.live-status {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 11px;
+
+    background: #ecfdf5;
+    color: #059669;
+
+    border: 1px solid #a7f3d0;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.live-status span {
+    width: 7px;
+    height: 7px;
+
+    background: #10b981;
+    border-radius: 50%;
+
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+
+/* =====================================================
+   PORTFOLIO PREVIEW
+===================================================== */
+
+.portfolio-preview {
+    width: 100%;
+    max-width: 900px;
+    min-height: 900px;
+
+    margin: 0 auto;
+
+    padding: 55px;
+
+    position: relative;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* Top Decorative Line */
+
+.portfolio-preview::before {
+    content: "";
+
+    width: 100%;
+    height: 5px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: #4f46e5;
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.preview-profile {
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+
+    text-align: center;
+}
+
+.preview-profile img {
+    width: 125px;
+    height: 125px;
+
+    margin-bottom: 18px;
+
+    object-fit: cover;
+
+    border: 5px solid #eef2ff;
+    border-radius: 50%;
+
+    background: #f3f4f6;
+}
+
+.preview-profile h1 {
+    margin-bottom: 6px;
+
+    color: #111827;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.preview-profile h3 {
+    margin-bottom: 15px;
+
+    color: #4f46e5;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.preview-profile p {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.preview-contact {
+    margin-bottom: 35px;
+    padding: 15px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.preview-contact span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.preview-contact i {
+    color: #4f46e5;
+}
+
+
+/* =====================================================
+   PREVIEW BLOCK
+===================================================== */
+
+.preview-block {
+    margin-bottom: 35px;
+}
+
+.preview-block > h2 {
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #111827;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    border-bottom: 2px solid #eef2ff;
+}
+
+.preview-block > h2 i {
+    color: #4f46e5;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   SKILLS PREVIEW
+===================================================== */
+
+#previewSkills {
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+#previewSkills li {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 15px;
+
+    background: #ffffff;
+    color: #374151;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.04);
+
+    transition: all 0.25s ease;
+}
+
+#previewSkills li::before {
+    content: "\f121";
+
+    color: #6366f1;
+
+    font-family: "Font Awesome 6 Free";
+    font-size: 11px;
+    font-weight: 900;
+}
+
+#previewSkills li:hover {
+    color: #4f46e5;
+
+    border-color: #a5b4fc;
+    background: #f8faff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.10);
+}
+
+
+/* =====================================================
+   EDUCATION PREVIEW
+===================================================== */
+
+.education-preview {
+    padding-left: 18px;
+
+    border-left: 3px solid #6366f1;
+}
+
+.education-preview h3 {
+    margin-bottom: 5px;
+
+    color: #111827;
+    font-size: 16px;
+}
+
+.education-preview p {
+    margin-bottom: 5px;
+
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.education-preview span {
+    color: #4f46e5;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   PROJECTS PREVIEW
+   Same Style as Education
+===================================================== */
+
+#previewProjects {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+/* =====================================================
+   PROJECT PREVIEW ITEM
+===================================================== */
+
+.project-preview {
+    padding-left: 23px;
+    border-left: 3px solid #6366f1;
+    margin: 0;
+}
+
+
+/* =====================================================
+   PROJECT TITLE
+===================================================== */
+
+.project-preview h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+
+    margin: 0 0 8px 0;
+}
+
+
+/* =====================================================
+   PROJECT DESCRIPTION
+===================================================== */
+
+.project-preview p {
+    color: #6b7280;
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin: 0 0 8px 0;
+}
+
+
+/* =====================================================
+   PROJECT LINKS
+===================================================== */
+
+.project-preview .project-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   PROJECT LINK
+===================================================== */
+
+.project-preview .project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    text-decoration: none;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =====================================================
+   PROJECT LINK HOVER
+===================================================== */
+
+.project-preview .project-links a:hover {
+    color: #3730a3;
+    transform: translateX(2px);
+}
+
+
+/* =====================================================
+   PROJECT ICON
+===================================================== */
+
+.project-preview .project-links i {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   EXTRA PROJECT
+===================================================== */
+
+.project-preview-extra {
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* =====================================================
+   PROJECT SECTION 
+===================================================== */
+
+.preview-block > h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #eef2ff;
+}
+
+
+.preview-block > h2 i {
+    color: #4f46e5;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   SOCIAL FOOTER
+===================================================== */
+
+.social-footer {
+    width: 100%;
+
+    margin-top: 35px;
+    padding: 22px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.preview-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.preview-social-links a {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    transition: all 0.25s ease;
+}
+
+.preview-social-links a:hover {
+    transform: translateY(-3px);
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.20);
+}
+
+
+/* Individual Social Hover */
+
+#previewLinkedin:hover {
+    background: #0a66c2;
+}
+
+#previewGithub:hover {
+    background: #111827;
+}
+
+#previewInstagram:hover {
+    background: #e1306c;
+}
+
+#previewTwitter:hover {
+    background: #111827;
+}
+
+#previewFacebook:hover {
+    background: #1877f2;
+}
+
+
+/* =====================================================
+   GENERAL LINKS
+===================================================== */
+
+a {
+    transition: all 0.2s ease;
+}
+
+
+/* =====================================================
+   RESPONSIVE - 1200px
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .builder-container {
+        grid-template-columns: 370px minmax(0, 1fr);
+    }
+
+    .portfolio-preview {
+        padding: 40px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - 950px
+===================================================== */
+
+@media (max-width: 950px) {
+
+    html,
+    body {
+        overflow: auto;
+    }
+
+    .builder-header {
+        position: sticky;
+    }
+
+    .builder-container {
+        height: auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        overflow: visible;
+    }
+
+    .builder-sidebar {
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+
+        overflow: visible;
+    }
+
+    .preview-area {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+
+        overflow: visible;
+    }
+
+    .portfolio-preview {
+        min-height: 900px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - 650px
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .builder-header {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .builder-sidebar {
+        padding: 15px;
+    }
+
+    .preview-area {
+        padding: 15px;
+    }
+
+    .preview-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .live-status {
+        align-self: flex-start;
+    }
+
+    .portfolio-preview {
+        width: 100%;
+        min-height: 900px;
+
+        padding: 35px 25px;
+
+        border-radius: 12px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-profile h1 {
+        font-size: 27px;
+    }
+
+    .preview-contact {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding-left: 10px;
+    }
+
+    #previewSkills li {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .skill-input-row {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .skill-input-row::before {
+        width: 31px;
+        height: 31px;
+
+        font-size: 12px;
+    }
+
+    .remove-skill {
+        width: 28px;
+        height: 28px;
+    }
+
+    .project-preview h3 {
+        font-size: 16px;
+    }
+
+    .project-preview p {
+        font-size: 13px;
+    }
+
+    .project-preview .project-links {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - 450px
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .logo span {
+        font-size: 17px;
+    }
+
+    .header-actions {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .header-actions .btn {
+        width: 100%;
+    }
+
+    .builder-section {
+        padding: 15px;
+    }
+
+    .portfolio-preview {
+        min-height: 900px;
+
+        padding: 25px 15px;
+    }
+
+    .preview-profile img {
+        width: 105px;
+        height: 105px;
+    }
+
+    .preview-profile h1 {
+        font-size: 24px;
+    }
+
+    .preview-profile h3 {
+        font-size: 15px;
+    }
+
+    .preview-profile p {
+        font-size: 13px;
+    }
+
+    .preview-block > h2 {
+        font-size: 17px;
+    }
+
+    .preview-social-links {
+        gap: 10px;
+    }
+
+    .preview-social-links a {
+        width: 38px;
+        height: 38px;
+
+        font-size: 16px;
+    }
+
+    
+}
+/* =====================================================
+   PDF PRINT / DOWNLOAD
+===================================================== */
+
+.pdf-generating {
+    background: #ffffff !important;
+}
+
+@media print {
+
+    body {
+        background: #ffffff;
+    }
+
+    .builder-header,
+    .builder-sidebar,
+    .preview-top {
+        display: none !important;
+    }
+
+    .builder-container {
+        display: block !important;
+        height: auto !important;
+    }
+
+    .preview-area {
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+    }
+
+    .portfolio-preview {
+        width: 210mm !important;
+        max-width: 210mm !important;
+        min-height: 297mm !important;
+
+        margin: 0 !important;
+
+        padding: 18mm !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+    .preview-block,
+    .education-preview,
+    .project-preview,
+    .social-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

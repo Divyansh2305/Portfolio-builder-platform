@@ -1,0 +1,207 @@
+/*==================================
+        Laptop
+===================================*/
+
+@media (max-width:1024px){
+
+.hero{
+    gap:40px;
+}
+
+.hero-left h1{
+    font-size:48px;
+}
+
+.feature-container,
+.template-container,
+.stats,
+.testimonial-container{
+    grid-template-columns:repeat(2,1fr);
+}
+
+#contact{
+    width:80%;
+}
+
+}
+
+/*==================================
+        Tablet
+===================================*/
+
+@media (max-width:768px){
+
+/* Navbar */
+
+.navbar{
+    height:70px;
+    position:relative;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.nav-links,
+.nav-btn{
+    display:none;
+}
+
+.nav-links.active{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:25px;
+    gap:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.nav-btn.active{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    background:#fff;
+    padding:20px;
+    gap:15px;
+    text-align:center;
+}
+
+/* Hero */
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    gap:40px;
+}
+
+.hero-left h1{
+    font-size:38px;
+}
+
+.hero-left p{
+    font-size:16px;
+}
+
+.hero-right img{
+    max-width:420px;
+}
+
+/* Grid */
+
+.feature-container,
+.template-container,
+.stats,
+.testimonial-container{
+    grid-template-columns:1fr;
+}
+
+#features h2,
+#templates h2,
+.testimonial h2,
+#contact h2{
+    font-size:34px;
+}
+
+.section-text{
+    font-size:16px;
+}
+
+.cta{
+    padding:70px 20px;
+}
+
+.cta h2{
+    font-size:30px;
+}
+
+#contact{
+    width:90%;
+}
+
+}
+
+/*==================================
+        Mobile
+===================================*/
+@media(max-width:768px){
+
+.logo img{
+    width:42px;
+    height:42px;
+}
+
+.logo{
+    font-size:22px;
+}
+
+}
+@media (max-width:480px){
+
+
+.hero{
+    margin:40px auto;
+}
+
+.hero-left h1{
+    font-size:30px;
+}
+
+.hero-left p{
+    font-size:15px;
+}
+
+.hero-btn,
+.cta-btn,
+.login-btn,
+.signup-btn{
+    width:100%;
+    text-align:center;
+}
+
+.feature-card,
+.template-card,
+.stat-box,
+.testimonial-card{
+    padding:25px;
+}
+
+.template-card img{
+    height:220px;
+}
+
+.stat-box h2{
+    font-size:34px;
+}
+
+.cta{
+    padding:50px 15px;
+}
+
+.cta h2{
+    font-size:24px;
+}
+
+#contact{
+    width:95%;
+}
+
+input,
+textarea,
+button{
+    width:100%;
+}
+
+footer{
+    padding:20px;
+}
+
+footer p{
+    font-size:14px;
+}
+
+}

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Builder</title>
+
+    <link rel="stylesheet" href="css/builder.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="builder-header">
+
+        <div class="logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Portfolio Builder</span>
+        </div>
+
+        <div class="header-actions">
+
+            <button type="button" id="saveBtn" class="btn btn-save">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Save
+            </button>
+
+            <button type="button" id="previewBtn" class="btn btn-preview">
+                <i class="fa-solid fa-eye"></i>
+                Preview
+            </button>
+
+            <button type="button" id="generateBtn" class="btn btn-generate">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Generate
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN BUILDER ================= -->
+
+    <main class="builder-container">
+
+        <!-- ========== LEFT SIDEBAR ========== -->
+
+        <aside class="builder-sidebar">
+
+            <div class="sidebar-title">
+                <h2>Build Your Portfolio</h2>
+                <p>Fill in your details below</p>
+            </div>
+
+
+            <!-- ================= PERSONAL ================= -->
+
+            <div class="builder-section active">
+
+                <div class="section-heading">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Personal Information</span>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="profession">
+                        Profession
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profession"
+                        placeholder="e.g. Full Stack Developer">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="about">
+                        About Me
+                    </label>
+
+                    <textarea
+                        id="about"
+                        rows="5"
+                        placeholder="Write something about yourself..."></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@gmail.com">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            placeholder="+91 XXXXX XXXXX">
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Indore, India">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="profileImage">
+                        Profile Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profileImage"
+                        accept="image/*">
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SKILLS ================= -->
+
+            <div class="builder-section">
+
+                <div class="section-heading">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Skills</span>
+                </div>
+
+                <div id="skillsContainer">
+
+                    <div class="skill-input-row">
+
+                        <input
+                            type="text"
+                            class="skill"
+                            placeholder="e.g. HTML">
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="addSkill"
+                    class="add-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Add Skill
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= EDUCATION ================= -->
+
+            <div class="builder-section">
+
+                <div class="section-heading">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Education</span>
+                </div>
+
+
+                <div id="educationContainer">
+
+                    <div class="education-card">
+
+                        <div class="form-group">
+
+                            <label>
+                                College / University
+                            </label>
+
+                            <input
+                                type="text"
+                                class="education-college"
+                                placeholder="University / College Name">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Degree
+                            </label>
+
+                            <input
+                                type="text"
+                                class="education-degree"
+                                placeholder="e.g. MCA">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Passing Year
+                            </label>
+
+                            <input
+                                type="text"
+                                class="education-year"
+                                placeholder="2026">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addEducation"
+                    class="add-education-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Add Education
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= PROJECTS ================= -->
+
+<div class="builder-section">
+
+    <div class="section-heading">
+
+        <i class="fa-solid fa-folder-open"></i>
+
+        <span>Projects</span>
+
+    </div>
+
+
+    <div id="projectsContainer">
+
+        <!-- Default Project Card -->
+
+        <div class="project-card-builder">
+
+            <div class="form-group">
+
+                <label>
+                    Project Name
+                </label>
+
+                <input
+                    type="text"
+                    class="project-name"
+                    placeholder="e.g. Amazon Clone">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Project Description
+                </label>
+
+                <textarea
+                    class="project-description"
+                    rows="3"
+                    placeholder="Describe your project..."></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    GitHub Link
+                </label>
+
+                <input
+                    type="url"
+                    class="project-github"
+                    placeholder="https://github.com/...">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Live Demo
+                </label>
+
+                <input
+                    type="url"
+                    class="project-live"
+                    placeholder="https://...">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Add Project Button -->
+
+    <button
+        type="button"
+        id="addProject"
+        class="add-project-btn">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Add Project
+
+    </button>
+
+</div>  
+
+            <!-- ================= SOCIAL LINKS BUILDER ================= -->
+
+            <div class="builder-section">
+
+                <div class="section-heading">
+
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>Social Links</span>
+
+                </div>
+
+
+                <div id="socialLinksContainer">
+
+                    <div class="social-link-card">
+
+                        <div class="form-group">
+
+                            <label>
+                                Platform
+                            </label>
+
+                            <select class="social-platform">
+
+                                <option value="linkedin">
+                                    LinkedIn
+                                </option>
+
+                                <option value="github">
+                                    GitHub
+                                </option>
+
+                                <option value="instagram">
+                                    Instagram
+                                </option>
+
+                                <option value="twitter">
+                                    Twitter / X
+                                </option>
+
+                                <option value="facebook">
+                                    Facebook
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Profile URL
+                            </label>
+
+                            <input
+                                type="url"
+                                class="social-url"
+                                placeholder="https://...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addSocialLink"
+                    class="add-social-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Add Social Link
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             RIGHT PREVIEW
+        ===================================================== -->
+
+        <section class="preview-area">
+
+            <div class="preview-top">
+
+                <div>
+                    <h2>Live Preview</h2>
+                    <p>Your portfolio will appear here</p>
+                </div>
+
+                <span class="live-status">
+                    <span></span>
+                    Live
+                </span>
+
+            </div>
+
+
+            <!-- ================= PORTFOLIO PREVIEW ================= -->
+
+            <div class="portfolio-preview">
+
+
+                <!-- ================= PROFILE ================= -->
+
+                <div class="preview-profile">
+
+                    <img
+                        src="images/user.png"
+                        id="previewImage"
+                        alt="Profile">
+
+                    <h1 id="previewName">
+                        Your Name
+                    </h1>
+
+                    <h3 id="previewProfession">
+                        Your Profession
+                    </h3>
+
+                    <p id="previewAbout">
+                        Your introduction will appear here.
+                    </p>
+
+                </div>
+
+
+                <!-- ================= CONTACT ================= -->
+
+                <div class="preview-contact">
+
+                    <span>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span id="previewEmail">
+                            email@example.com
+                        </span>
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span id="previewPhone">
+                            +91 XXXXX XXXXX
+                        </span>
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span id="previewLocation">
+                            India
+                        </span>
+
+                    </span>
+
+                </div>
+
+
+                <!-- ================= SKILLS ================= -->
+
+                <div class="preview-block">
+
+                    <h2>
+
+                        <i class="fa-solid fa-code"></i>
+                        Skills
+
+                    </h2>
+
+
+                    <ul id="previewSkills">
+
+                        <li>HTML</li>
+                        <li>CSS</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- ================= EDUCATION ================= -->
+
+                <div class="preview-block">
+
+                    <h2>
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Education
+
+                    </h2>
+
+
+                    <div id="previewEducation">
+
+                        <div class="education-preview">
+
+                            <h3 id="previewDegree">
+                                Degree
+                            </h3>
+
+                            <p id="previewCollege">
+                                College / University
+                            </p>
+
+                            <span id="previewYear">
+                                Passing Year
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<div class="preview-block">
+
+    <h2>
+        <i class="fa-solid fa-diagram-project"></i>
+        Projects
+    </h2>
+
+    <div id="previewProjects">
+
+        <div class="project-preview">
+
+            <h3 id="previewProjectName">
+                Project Name
+            </h3>
+
+            <p id="previewProjectDescription">
+                Project description will appear here.
+            </p>
+
+            <div id="previewProjectLinks" class="project-links">
+
+                <a
+                    href="#"
+                    id="previewProjectGithub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="display:none;">
+
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+
+                </a>
+
+                <a
+                    href="#"
+                    id="previewProjectLive"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="display:none;">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    Live Demo
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+                <!-- ================= SOCIAL FOOTER ================= -->
+
+                <footer class="social-footer">
+
+                    <div class="preview-social-links">
+
+                        <a
+                            href="#"
+                            id="previewLinkedin"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            style="display:none;">
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            id="previewGithub"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            style="display:none;">
+
+                            <i class="fa-brands fa-github"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            id="previewInstagram"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                            style="display:none;">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+                    </div>
+
+                </footer>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="js/builder.js"></script>
+
+</body>
+
+</html>
