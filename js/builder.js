@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFIG
     ========================================================= */
 
-    const API_BASE = "http://localhost:5000";
+    const API_BASE = "https://portfolio-builder-platform-3.onrender.com";
 
 
     /* =========================================================
