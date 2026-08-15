@@ -1,7 +1,15 @@
 const form = document.getElementById("signupForm");
 
+const API_BASE =
+    "https://portfolio-builder-platform-3.onrender.com";
+
 function showToast(message, type) {
     const toast = document.getElementById("toast");
+
+    if (!toast) {
+        alert(message);
+        return;
+    }
 
     toast.innerHTML = message;
     toast.className = "toast show " + type;
@@ -11,72 +19,88 @@ function showToast(message, type) {
     }, 3000);
 }
 
-form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+if (form) {
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword =
-        document.getElementById("confirmPassword").value;
+        const name =
+            document.getElementById("name").value.trim();
 
-    if (!name || !email || !password || !confirmPassword) {
-        showToast(
-            "All fields are required",
-            "error"
-        );
-        return;
-    }
+        const email =
+            document.getElementById("email").value.trim().toLowerCase();
 
-    if (password !== confirmPassword) {
-        showToast(
-            "Passwords do not match",
-            "error"
-        );
-        return;
-    }
+        const password =
+            document.getElementById("password").value;
 
-    try {
-        const response = await fetch(
-            "/api/auth/signup",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    password
-                })
-            }
-        );
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
 
-        const result = await response.json();
-
-        if (!response.ok) {
+        if (!name || !email || !password || !confirmPassword) {
             showToast(
-                result.message || "Signup failed",
+                "All fields are required",
                 "error"
             );
             return;
         }
 
-        showToast(
-            "Account Created Successfully ✔",
-            "success"
-        );
+        if (password !== confirmPassword) {
+            showToast(
+                "Passwords do not match",
+                "error"
+            );
+            return;
+        }
 
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1200);
+        try {
+            const response = await fetch(
+                `${API_BASE}/api/auth/signup`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password
+                    })
+                }
+            );
 
-    } catch (error) {
-        console.error("Signup Error:", error);
+            const result = await response.json();
 
-        showToast(
-            "Backend server se connection nahi hua",
-            "error"
-        );
-    }
-});
+            console.log(
+                "Signup Response:",
+                result
+            );
+
+            if (!response.ok) {
+                showToast(
+                    result.message || "Signup failed",
+                    "error"
+                );
+                return;
+            }
+
+            showToast(
+                "Account Created Successfully ✔",
+                "success"
+            );
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1200);
+
+        } catch (error) {
+            console.error(
+                "Signup Error:",
+                error
+            );
+
+            showToast(
+                "Backend server se connection nahi hua",
+                "error"
+            );
+        }
+    });
+}

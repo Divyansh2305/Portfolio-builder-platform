@@ -1,14 +1,9 @@
 const form = document.getElementById("loginForm");
 
-
-// ============================================
-// TOAST
-// ============================================
+const API_BASE = "https://portfolio-builder-platform-3.onrender.com";
 
 function showToast(message, type) {
-
-    const toast =
-        document.getElementById("toast");
+    const toast = document.getElementById("toast");
 
     if (!toast) {
         alert(message);
@@ -16,222 +11,109 @@ function showToast(message, type) {
     }
 
     toast.innerHTML = message;
-
-    toast.className =
-        "toast show " + type;
+    toast.className = "toast show " + type;
 
     setTimeout(() => {
-
-        toast.className =
-            "toast";
-
+        toast.className = "toast";
     }, 3000);
 }
 
-
-// ============================================
-// LOGIN
-// ============================================
-
 if (form) {
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-    form.addEventListener(
-        "submit",
-        async function (e) {
+        const email = document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
 
-            e.preventDefault();
+        const password = document
+            .getElementById("password")
+            .value;
 
+        if (!email || !password) {
+            showToast(
+                "Email and password required",
+                "error"
+            );
+            return;
+        }
 
-            const email =
-                document
-                    .getElementById("email")
-                    .value
-                    .trim()
-                    .toLowerCase();
+        try {
+            const response = await fetch(
+                `${API_BASE}/api/auth/login`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                }
+            );
 
+            const result = await response.json();
 
-            const password =
-                document
-                    .getElementById("password")
-                    .value;
+            console.log("Login Response:", result);
 
-
-            // ========================================
-            // VALIDATION
-            // ========================================
-
-            if (!email || !password) {
-
+            if (!response.ok) {
                 showToast(
-                    "Email and password required",
+                    result.message || "Login failed",
                     "error"
                 );
-
                 return;
             }
 
-
-            try {
-
-                // ====================================
-                // LOGIN API
-                // ====================================
-
-                const response =
-                    await fetch(
-                        "/api/auth/login",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-                                email,
-                                password
-                            })
-                        }
-                    );
-
-
-                // ====================================
-                // RESPONSE
-                // ====================================
-
-                const result =
-                    await response.json();
-
-
-                console.log(
-                    "Login Response:",
-                    result
-                );
-
-
-                // ====================================
-                // LOGIN FAILED
-                // ====================================
-
-                if (!response.ok) {
-
-                    showToast(
-                        result.message ||
-                        "Login failed",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                // ====================================
-                // TOKEN CHECK
-                // ====================================
-
-                if (!result.token) {
-
-                    showToast(
-                        "Token nahi mila. Backend check karo.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                // ====================================
-                // CLEAR OLD LOGIN
-                // ====================================
-
-                sessionStorage.removeItem(
-                    "token"
-                );
-
-                sessionStorage.removeItem(
-                    "user"
-                );
-
-
-                // ====================================
-                // SAVE LOGIN SESSION
-                // ====================================
-
-                sessionStorage.setItem(
-                    "token",
-                    result.token
-                );
-
-
-                sessionStorage.setItem(
-                    "user",
-                    JSON.stringify(
-                        result.user
-                    )
-                );
-
-
-                // Also clear old localStorage
-                // so old/wrong token doesn't interfere
-                localStorage.removeItem(
-                    "token"
-                );
-
-                localStorage.removeItem(
-                    "user"
-                );
-
-
-                console.log(
-                    "Token saved:",
-                    sessionStorage.getItem("token")
-                );
-
-                console.log(
-                    "Logged User:",
-                    result.user
-                );
-
-
-                // ====================================
-                // SUCCESS
-                // ====================================
-
+            if (!result.token) {
                 showToast(
-                    "Login Successful ✔",
-                    "success"
-                );
-
-
-                // ====================================
-                // GO TO BUILDER
-                // ====================================
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        "builder.html";
-
-                }, 800);
-
-
-            } catch (error) {
-
-                console.error(
-                    "Login Error:",
-                    error
-                );
-
-
-                showToast(
-                    "Backend server se connection nahi hua",
+                    "Token nahi mila. Backend check karo.",
                     "error"
                 );
-
+                return;
             }
 
-        }
-    );
+            sessionStorage.setItem(
+                "token",
+                result.token
+            );
 
+            sessionStorage.setItem(
+                "user",
+                JSON.stringify(result.user)
+            );
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+
+            console.log(
+                "Token saved:",
+                sessionStorage.getItem("token")
+            );
+
+            console.log(
+                "Logged User:",
+                result.user
+            );
+
+            showToast(
+                "Login Successful ✔",
+                "success"
+            );
+
+            setTimeout(() => {
+                window.location.href = "builder.html";
+            }, 800);
+
+        } catch (error) {
+            console.error("Login Error:", error);
+
+            showToast(
+                "Backend server not connected",
+                "error"
+            );
+        }
+    });
 }
