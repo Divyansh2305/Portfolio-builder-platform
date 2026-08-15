@@ -79,7 +79,7 @@ if (form) {
 
                 const response =
                     await fetch(
-                        "http://localhost:5000/api/auth/login",
+                        "/api/auth/login",
                         {
                             method: "POST",
 
